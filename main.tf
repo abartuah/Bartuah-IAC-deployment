@@ -15,6 +15,15 @@ provider "aws" {
 # }
 
 
+resource "aws_instance" "Bartuah-dev-server" {
+  ami           = "ami-0620781df87f2f102" # Replace with your AMI ID
+  instance_type = "t2.micro"               # Replace with your desired instance type
+  tags = {
+    Name = "Cloud_Ops"
+  
+  
+
+
 
 
 # Create a security group
