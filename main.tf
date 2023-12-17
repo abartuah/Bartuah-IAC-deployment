@@ -28,24 +28,24 @@ resource "aws_instance" "Bartuah-dev-server" {
 
 
 # Create a security group
-resource "aws_security_group" "web_sg" {
-  name        = "web_security_group"
-  description = "Allow inbound HTTP traffic"
+# resource "aws_security_group" "web_sg" {
+#   name        = "web_security_group"
+#   description = "Allow inbound HTTP traffic"
 
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+#   ingress {
+#     from_port   = 80
+#     to_port     = 80
+#     protocol    = "tcp"
+#     cidr_blocks = ["0.0.0.0/0"]
+#   }
 
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
+#   egress {
+#     from_port   = 0
+#     to_port     = 0
+#     protocol    = "-1"
+#     cidr_blocks = ["0.0.0.0/0"]
+#   }
+# }
 
 # Launch Configuration
 resource "aws_launch_configuration" "web_server_lc" {
