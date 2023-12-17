@@ -5,14 +5,14 @@ provider "aws" {
   secret_key = var.aws_secret_key
 }
 
-terraform {
-  backend "s3" {
-    bucket         = "clusters.cadnewera.dev.org"
-    key            = "path/to/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "abda-smart-technology"
-  }
-}
+# terraform {
+#   backend "s3" {
+#     bucket         = "clusters.cadnewera.dev.org"
+#     key            = "path/to/terraform.tfstate"
+#     region         = "us-east-1"
+#     dynamodb_table = "abda-smart-technology"
+#   }
+# }
 
 
 
