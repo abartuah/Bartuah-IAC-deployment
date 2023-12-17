@@ -119,15 +119,15 @@ resource "aws_autoscaling_group" "web_server_asg" {
 #   }
 # }
 
-# Route 53 Record
-resource "aws_route53_record" "web_dns_record" {
-  zone_id = "Z02552193DAG9XJT8SX07" # Replace with your Route 53 hosted zone ID
-  name    = "zuahserkah.com"        # Replace with your desired domain name
-  type    = "A"
+# # Route 53 Record
+# resource "aws_route53_record" "web_dns_record" {
+#   zone_id = "Z02552193DAG9XJT8SX07" # Replace with your Route 53 hosted zone ID
+#   name    = "zuahserkah.com"        # Replace with your desired domain name
+#   type    = "A"
 
-  alias {
-    name                   = aws_lb.web_lb.dns_name
-    zone_id                = aws_lb.web_lb.zone_id
-    evaluate_target_health = true
-  }
-}
+#   alias {
+#     name                   = aws_lb.web_lb.dns_name
+#     zone_id                = aws_lb.web_lb.zone_id
+#     evaluate_target_health = true
+#   }
+# }
