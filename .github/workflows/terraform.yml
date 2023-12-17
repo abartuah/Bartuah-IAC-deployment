@@ -19,11 +19,12 @@ jobs:
         with:
           terraform_version: 1.0.9  # Set your desired Terraform version
 
-      - name: AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_access_key_id: "AKIA2VNYJOEVQQ4OL5N7"
+          aws_secret_access_key:  "9AiMFlSTOJcK7omMSg4JkObCN9QV3AuJWTb/y/Bn"
+          mask-aws-account-id: "no"
           aws-region: us-east-1  # Replace with your AWS region
 
       - name: Terraform Init
