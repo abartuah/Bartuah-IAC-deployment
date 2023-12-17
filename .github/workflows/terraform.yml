@@ -26,7 +26,7 @@ jobs:
           aws-region: us-east-1 # Replace with your AWS region
 
       - name: Terraform Init
-        run: terraform init -backend-config="clusters.cadnewera.dev.org" -backend-config="key=path/to/terraform.tfstate"  # Replace with your S3 bucket and path
+        run: terraform init       # Replace with your S3 bucket and path
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan
