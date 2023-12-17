@@ -56,58 +56,58 @@ resource "aws_launch_configuration" "web_server_lc" {
   }
 }
 
-# Autoscaling Group
-resource "aws_autoscaling_group" "web_server_asg" {
-  desired_capacity     = 2
-  min_size             = 1
-  max_size             = 4
-  launch_configuration = aws_launch_configuration.web_server_lc.id
-  vpc_zone_identifier  = ["subnet-014ddf1af0d42cfc8"] # Replace with your subnet ID
+# # Autoscaling Group
+# resource "aws_autoscaling_group" "web_server_asg" {
+#   desired_capacity     = 2
+#   min_size             = 1
+#   max_size             = 4
+#   launch_configuration = aws_launch_configuration.web_server_lc.id
+#   vpc_zone_identifier  = ["subnet-014ddf1af0d42cfc8"] # Replace with your subnet ID
 
-  tag {
-    key                 = "Name"
-    value               = "web-server"
-    propagate_at_launch = true
-  }
-}
+#   tag {
+#     key                 = "Name"
+#     value               = "web-server"
+#     propagate_at_launch = true
+#   }
+# }
 
-# Load Balancer
-resource "aws_lb" "web_lb" {
-  name               = "web-load-balancer"
-  internal           = false
-  load_balancer_type = "application"
-  subnets            = ["subnet-014ddf1af0d42cfc8", "subnet-0ff2152d520c63113"] # Replace with your subnet IDs
-}
+# # Load Balancer
+# resource "aws_lb" "web_lb" {
+#   name               = "web-load-balancer"
+#   internal           = false
+#   load_balancer_type = "application"
+#   subnets            = ["subnet-014ddf1af0d42cfc8", "subnet-0ff2152d520c63113"] # Replace with your subnet IDs
+# }
 
-# Load Balancer Listener
-resource "aws_lb_listener" "web_lb_listener" {
-  load_balancer_arn = aws_lb.web_lb.arn
-  port              = 80
-  protocol          = "HTTP"
+# # Load Balancer Listener
+# resource "aws_lb_listener" "web_lb_listener" {
+#   load_balancer_arn = aws_lb.web_lb.arn
+#   port              = 80
+#   protocol          = "HTTP"
 
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.web_target_group.arn
-  }
-}
+#   default_action {
+#     type             = "forward"
+#     target_group_arn = aws_lb_target_group.web_target_group.arn
+#   }
+# }
 
-# Target Group
-resource "aws_lb_target_group" "web_target_group" {
-  name     = "web-target-group"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = "vpc-0a51aa34482504882" # Replace with your VPC ID
+# # Target Group
+# resource "aws_lb_target_group" "web_target_group" {
+#   name     = "web-target-group"
+#   port     = 80
+#   protocol = "HTTP"
+#   vpc_id   = "vpc-0a51aa34482504882" # Replace with your VPC ID
 
-  health_check {
-    path                = "/"
-    protocol            = "HTTP"
-    port                = "traffic-port"
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-    timeout             = 3
-    interval            = 30
-  }
-}
+#   health_check {
+#     path                = "/"
+#     protocol            = "HTTP"
+#     port                = "traffic-port"
+#     healthy_threshold   = 2
+#     unhealthy_threshold = 2
+#     timeout             = 3
+#     interval            = 30
+#   }
+# }
 
 # Route 53 Record
 resource "aws_route53_record" "web_dns_record" {
