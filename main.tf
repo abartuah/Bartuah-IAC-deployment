@@ -20,7 +20,8 @@ resource "aws_instance" "Bartuah-dev-server" {
   instance_type = "t2.micro"               # Replace with your desired instance type
   tags = {
     Name = "Cloud_Ops"
-  
+  }
+}
   
 
 
