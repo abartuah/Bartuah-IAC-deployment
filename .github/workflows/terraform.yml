@@ -23,8 +23,8 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v3
         with:
         
-          aws-secret-access-key: "AKIA2VNYJOEVQQ4OL5N7"
-          aws-access-key-id: "9AiMFlSTOJcK7omMSg4JkObCN9QV3AuJWTb/y/Bn"
+          AWS_ACCESS_KEY_ID: "AKIA2VNYJOEVQQ4OL5N7"
+          AWS_SECRET_ACCESS_KEY: "9AiMFlSTOJcK7omMSg4JkObCN9QV3AuJWTb/y/Bn"
           mask-aws-account-id: "no"
           aws-region: us-east-1  # Replace with your AWS region
 
