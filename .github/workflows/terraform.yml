@@ -35,7 +35,7 @@ jobs:
       #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'  # Adjust conditions as needed
       #   run: terraform apply -auto-approve tfplan
       
-      - name: Terraform Destroy
-        run: |
-          terraform plan -destroy -out=tfdestroy.plan
-          terraform apply tfdestroy.plan
+      - name: Terraform destroy
+        id: destroy
+        run: terraform destroy -auto-approved
+
